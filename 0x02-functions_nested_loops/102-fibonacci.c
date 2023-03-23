@@ -8,8 +8,8 @@
  */
 int main(void)
 {
-	int i, 
-	unsigned long sum, first = 1, second = 2;
+	int i;
+	unsigned long first = 1,second = 2, sum;
 
 	printf("%lu, %lu, ", first, second);
 
