@@ -9,14 +9,14 @@
 int main(void)
 {
 	int i, 
-	unsigned int sum, first = 1, second = 2;
+	unsigned long sum, first = 1, second = 2;
 
-	printf("%d, %d, ", first, second);
+	printf("%lu, %lu, ", first, second);
 
 	for (i = 0; i < 50; i++)
 	{
 		sum = first + second;
-		printf("%d", sum);
+		printf("%lu", sum);
 		first = second;
 		second = sum;
 
