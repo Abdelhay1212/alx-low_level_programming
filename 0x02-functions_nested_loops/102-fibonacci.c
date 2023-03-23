@@ -8,7 +8,7 @@
  */
 int main(void)
 {
-	int i, first = 1, second = 2;
+	int i, sum, first = 1, second = 2;
 
 	printf("%d, %d, ", first, second);
 
