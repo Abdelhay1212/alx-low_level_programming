@@ -8,7 +8,8 @@
  */
 int main(void)
 {
-	int i, sum, first = 1, second = 2;
+	int i, 
+	unsigned int sum, first = 1, second = 2;
 
 	printf("%d, %d, ", first, second);
 
