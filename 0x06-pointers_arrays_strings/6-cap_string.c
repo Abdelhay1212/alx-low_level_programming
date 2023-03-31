@@ -7,14 +7,18 @@
  */
 char *cap_string(char *s)
 {
-	int i;
+	int i, j;
+	char a[] = " ,;.!?(){}";
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		if (s[i] == ' ' || s[i] == '.')
+		for(j = 0; a[j] != '\0'; j++)
 		{
-			if (s[i] >= 'a' && s[i] <= 'z')
-				s[i] = s[i] - 32;
+			if (s[i] == a[j])
+			{
+				if (s[i] >= 'a' && s[i] <= 'z')
+					s[i] = s[i] - 32;
+			}
 		}
 	}
 
