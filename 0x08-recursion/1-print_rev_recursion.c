@@ -7,9 +7,9 @@
   */
 void print(char *s)
 {
-	_putchar(*s);
 	if (!((*s >= 'a' && *s <= 'z') || (*s >= 'A' && *s <= 'Z')))
 		return;
+	_putchar(*s);
 	print(--s);
 }
 
