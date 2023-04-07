@@ -3,6 +3,7 @@
 
 /**
  * check_palindrome - checks if a string is a palindrome or not
+ * @s: string to be checked
  * @i: integer
  * @j: integer
  * Return: 1 or 0
@@ -24,5 +25,6 @@ int check_palindrome(char *s, int i, int j)
 int is_palindrome(char *s)
 {
 	int j = strlen(s);
+
 	return (check_palindrome(s, 0, j - 1));
 }
