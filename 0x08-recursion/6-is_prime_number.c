@@ -1,14 +1,14 @@
 #include "main.h"
 
 /**
- * check - checks if number is prime
+ * check_prime - checks if number is prime
  * @n: integer
  * @i: integer
  * Return: integer
  */
 int check_prime(int n, int i)
 {
-	if (n % i == 0)
+	if (n < i || n % i == 0)
 		return (0);
 	if (i > n / 2)
 		return (1);
@@ -23,6 +23,8 @@ int check_prime(int n, int i)
  */
 int is_prime_number(int n)
 {
+	if (n < 0)
+		n *= -1;
 	if (n == 2)
 		return (1);
 	return (check_prime(n, 2));
