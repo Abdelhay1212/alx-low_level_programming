@@ -8,9 +8,12 @@
   */
 int main(int argc, char *argv[])
 {
+	int a = argv[1];
+	int b = argv[2];
+
 	if (argc == 2)
 	{
-		printf("%d\n", argv[1] * argv[2]);
+		printf("%d\n", a * b);
 	}
 	else
 	{
