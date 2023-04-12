@@ -9,6 +9,7 @@
  */
 int main(int argc, char *argv[])
 {
+	int cents;
 	int n = 0, i = 0, count = 0;
 	int amounts[] = {25, 10, 5, 2, 1};
 
@@ -18,7 +19,7 @@ int main(int argc, char *argv[])
 		return (1);
 	}
 
-	int cents = atoi(argv[1]);
+	cents = atoi(argv[1]);
 
 	if (cents < 0)
 	{
