@@ -9,11 +9,11 @@
  **/
 char *str_concat(char *s1, char *s2)
 {
-	int i, len1, len2;
+	int i, j, len1, len2;
 	char *concat;
 
 	if (s1 == NULL && s2 == NULL)
-		return (NUll);
+		return (NULL);
 
 	len1 = strlen(s1);
 	len2 = strlen(s2);
@@ -25,7 +25,7 @@ char *str_concat(char *s1, char *s2)
 	for (i = 0; i < len1; i++)
 		concat[i] = s1[i];
 
-	for (i, j = 0; j < len2; i++, j++)
+	for (j = 0; j < len2; i++, j++)
 		concat[i] = s2[j];
 	concat[i] = '\0';
 
