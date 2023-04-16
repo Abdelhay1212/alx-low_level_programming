@@ -9,12 +9,12 @@
 char *argstostr(int ac, char **av)
 {
 	int i, j;
-	char **concat;
+	char *concat;
 
 	if (ac == 0 || av == NULL)
 		return (NULL);
 
-	concat = (char **) malloc(ac);
+	concat = (char *) malloc((ac * ac) - 1);
 
 	if (concat == NULL)
 		return (NULL);
@@ -22,7 +22,9 @@ char *argstostr(int ac, char **av)
 	for (i = 1, j = 0; i < ac; i++, j++)
 	{
 		concat[j] = av[i];
-		concat[++j] = '\n';
+
+		if (i != (ac - 1))
+			concat[++j] = '\n';
 	}
 
 	return (concat);
