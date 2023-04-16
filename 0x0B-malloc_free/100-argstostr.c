@@ -1,6 +1,27 @@
 #include <stdlib.h>
 
 /**
+ * length - calculate the length of two dimnetional array
+ * @ac: number of arrays in the array
+ * @av: array
+ * Return: integer
+ **/
+int length(int ac, char **av)
+{
+	int i, j, len;
+
+	for (i = 0; i < ac; i++)
+	{
+		j = 0;
+
+		while (av[j++])
+			len++;
+		len++;
+	}
+	return (len);
+}
+
+/**
  * argstostr - concatenates all the arguments of your program
  * @ac: number of arguments
  * @av: array of arguments
@@ -8,23 +29,30 @@
  **/
 char *argstostr(int ac, char **av)
 {
-	int i, j;
+	int i, j,k , len;
 	char *concat;
 
 	if (ac == 0 || av == NULL)
 		return (NULL);
 
-	concat = (char *) malloc((ac * ac) - 1);
+	len = length(ac, av);
+
+	concat = (char *) malloc(len + 1);
 
 	if (concat == NULL)
 		return (NULL);
 
-	for (i = 1, j = 0; i < ac; i++, j++)
+	for (i = 0, j = 0; i < ac; i++, j++)
 	{
-		concat[j] = av[i];
+		k = 0;
 
-		if (i != (ac - 1))
-			concat[++j] = '\n';
+		while (av[k])
+		{
+			concat[j] = av[k];
+			j++;
+			k++;
+		}
+		concat[j] = '\n';
 	}
 
 	return (concat);
