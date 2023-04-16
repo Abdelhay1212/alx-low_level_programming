@@ -9,12 +9,14 @@
 int length(int ac, char **av)
 {
 	int i, j, len;
+	char *str;
 
 	for (i = 0; i < ac; i++)
 	{
 		j = 0;
+		str = av[i];
 
-		while (av[j++])
+		while (str[j++])
 			len++;
 		len++;
 	}
@@ -30,7 +32,7 @@ int length(int ac, char **av)
 char *argstostr(int ac, char **av)
 {
 	int i, j,k , len;
-	char *concat;
+	char *concat, *str;
 
 	if (ac == 0 || av == NULL)
 		return (NULL);
@@ -45,10 +47,11 @@ char *argstostr(int ac, char **av)
 	for (i = 0, j = 0; i < ac; i++, j++)
 	{
 		k = 0;
+		str = av[i]
 
-		while (av[k])
+		while (str[k])
 		{
-			concat[j] = av[k];
+			concat[j] = str[k];
 			j++;
 			k++;
 		}
