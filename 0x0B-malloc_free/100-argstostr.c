@@ -31,7 +31,7 @@ int length(int ac, char **av)
  **/
 char *argstostr(int ac, char **av)
 {
-	int i, j ,k , len;
+	int i, j, k, len;
 	char *concat, *str;
 
 	if (ac == 0 || av == NULL)
