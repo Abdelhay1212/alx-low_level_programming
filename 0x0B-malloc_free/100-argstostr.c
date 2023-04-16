@@ -47,7 +47,7 @@ char *argstostr(int ac, char **av)
 	for (i = 0, j = 0; i < ac; i++, j++)
 	{
 		k = 0;
-		str = av[i]
+		str = av[i];
 
 		while (str[k])
 		{
