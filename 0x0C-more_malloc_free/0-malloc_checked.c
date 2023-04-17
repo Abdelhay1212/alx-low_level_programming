@@ -7,12 +7,12 @@
  **/
 void *malloc_checked(unsigned int b)
 {
-	unsigned int *p;
+	void *p;
 
-	p = (unsigned int *) malloc(sizeof(unsigned int));
+	p = malloc(b);
 
 	if (p == NULL)
 		exit(98);
-	p = &b;
+
 	return (p);
 }
