@@ -2,7 +2,12 @@
 #include "3-calc.h"
 #include <stdlib.h>
 
-
+/**
+  * main - ...
+  * @argc: the length of argv
+  * @argv: array of strings
+  * Return: 0
+  */
 int main(int argc, char *argv[])
 {
 	int (*p)(int, int);
