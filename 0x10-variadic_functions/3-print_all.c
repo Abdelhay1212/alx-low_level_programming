@@ -28,7 +28,7 @@ void print_all(const char * const format, ...)
 				test = 0;
 				break;
 			case 'f':
-				printf("%f", va_arg(args, float));
+				printf("%f", va_arg(args, double));
 				test = 0;
 				break;
 			case 's':
