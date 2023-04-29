@@ -12,10 +12,10 @@ list_t *add_node_end(list_t **head, const char *str)
 {
 	node *temp, *ptr;
 
-	temp = (node*)malloc(sizeof(node));
+	temp = (node *)malloc(sizeof(node));
 	if (temp == NULL)
 		return (NULL);
-	temp->data = strdup(str);
+	temp->str = strdup(str);
 	temp->len = strlen(str);
 	temp->next = NULL;
 
