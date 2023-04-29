@@ -14,7 +14,7 @@ list_t *add_node_end(list_t **head, const char *str)
 	list_t *temp, *ptr;
 
 	if (str == NULL)
-		return(NULL);
+		return (NULL);
 
 	temp = (list_t *)malloc(sizeof(list_t));
 	if (temp == NULL)
