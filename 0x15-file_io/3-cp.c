@@ -1,4 +1,7 @@
 #include "main.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <unistd.h>
 
 /**
  * main - program that copies the content of a file to another file.
@@ -8,7 +11,7 @@
  **/
 int main(int argc, char *argv[])
 {
- 	int src_file, dest_file, re;
+ 	int src_file, dest_file, re, wr, c_src, c_dest;
  	char buffer[1024];
 
 	if (argc != 3)
@@ -25,7 +28,7 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
-	dest_file = open(arv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	dest_file = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (dest_file == -1)
 	{
 		dprintf(STDOUT_FILENO, "Error: Can't write to %s\n", argv[2]);
@@ -42,7 +45,7 @@ int main(int argc, char *argv[])
 			exit(98);
 		}
 
-		wr = write(dest_file, buffer, 1024);
+		wr = write(dest_file, buffer, re);
 		if (wr == -1)
 		{
 			dprintf(STDOUT_FILENO, 
@@ -50,7 +53,7 @@ int main(int argc, char *argv[])
 			exit(99);
 		}
 
-	} while (re != -1)
+	} while (re > 0);
 
 	c_src = close(src_file);
 	c_dest = close(dest_file);
