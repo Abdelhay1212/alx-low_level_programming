@@ -1,7 +1,7 @@
 #include "lists.h"
 
-/*
- * print_dlistint - prints all the elements of a dlistint_t list.
+/**
+ * print_dlistint - prints all the elements of a dlinked list
  * @h: the dlinked list to print
  * Return: lenght of the dlinked list
  */
