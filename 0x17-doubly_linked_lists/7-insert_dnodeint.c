@@ -1,5 +1,27 @@
 #include "lists.h"
 
+dlistint_t *insert_in_the_middle(dlistint_t **h, unsigned int idx, dlistint_t **temp)
+{
+	unsigned int index = 0;
+	dlistint_t current = NULL;
+
+	current = *h;
+	while (current)
+	{
+		if (index == idx)
+		{
+			(*temp)->next = current;
+			(*temp)->prev = current->prev;
+			current->prev->next = *temp;
+			current->prev = *temp;
+			return (*temp);
+		}
+		index++;
+		current = current->next;
+	}
+	return (NULL);
+}
+
 /**
   * insert_dnodeint_at_index - inserts a new node at a given position.
   * @h: dlinked list
@@ -9,7 +31,7 @@
   */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	unsigned int len = 0, index = 0;
+	unsigned int len = 0;
 	dlistint_t *current = NULL;
 	dlistint_t *temp = malloc(sizeof(dlistint_t));
 
@@ -45,19 +67,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		temp->prev = current;
 		return (temp);
 	}
-	while (current)
-	{
-		if (index == idx)
-		{
-			temp->next = current;
-			temp->prev = current->prev;
-			current->prev->next = temp;
-			current->prev = temp;
-			return (temp);
-		}
-		index++;
-		current = current->next;
-	}
+	insert_in_the_middle(&h, idx, &temp);
 	free(temp);
 	return (NULL);
 }
