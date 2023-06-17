@@ -1,73 +1,73 @@
 #include "lists.h"
 
-dlistint_t *insert_in_the_middle(dlistint_t **h, unsigned int idx, dlistint_t **temp)
+dlistint_t *create_node(int n)
 {
-	unsigned int index = 0;
-	dlistint_t current = NULL;
-
-	current = *h;
-	while (current)
-	{
-		if (index == idx)
-		{
-			(*temp)->next = current;
-			(*temp)->prev = current->prev;
-			current->prev->next = *temp;
-			current->prev = *temp;
-			return (*temp);
-		}
-		index++;
-		current = current->next;
-	}
-	return (NULL);
+	dlistint_t *node = malloc(sizeof(dlistint_t));
+	if (node == NULL)
+		return NULL;
+	node->n = n;
+	node->prev = NULL;
+	node->next = NULL;
+	return node;
 }
 
-/**
-  * insert_dnodeint_at_index - inserts a new node at a given position.
-  * @h: dlinked list
-  * @idx: index to insert at
-  * @n: data to insert
-  * Return: the inserted node
-  */
+void insert_after_node(dlistint_t *node, dlistint_t *new_node)
+{
+	new_node->next = node->next;
+	new_node->prev = node;
+	if (node->next)
+		node->next->prev = new_node;
+	node->next = new_node;
+}
+
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
 	unsigned int len = 0;
-	dlistint_t *current = NULL;
-	dlistint_t *temp = malloc(sizeof(dlistint_t));
+	dlistint_t *current = *h;
 
-	if (temp == NULL)
-		return (NULL);  
-	temp->n = n;
-	temp->prev = NULL;
-	temp->next = NULL;
-	current = *h;
-	if (current == NULL)
-	{
-		*h = temp;
-		return (*h);
-	}
+	if (current == NULL && idx > 0)
+		return NULL;
+
 	if (idx == 0)
 	{
-		temp->next = current;
-		current->prev = temp;
-		*h = temp;
-		return (temp);
+		dlistint_t *new_node = create_node(n);
+		if (new_node == NULL)
+			return NULL;
+		new_node->next = current;
+		if (current)
+			current->prev = new_node;
+		*h = new_node;
+		return new_node;
 	}
+
 	while (current)
 	{
+		if (len == idx - 1)
+		{
+
+		dlistint_t *new_node = NULL;
+
+		*new_node = create_node(n);
+		if (new_node == NULL)
+			return NULL;
+		insert_after_node(current, new_node);
+		return new_node;
+		}
 		len++;
 		current = current->next;
 	}
-	current = *h;
-	if (idx == len)
+
+	if (len == idx)
 	{
-		while (current->next)
-			current = current->next;
-		current->next = temp;
-		temp->prev = current;
-		return (temp);
+		dlistint_t *new_node = create_node(n);
+		if (new_node == NULL)
+			return NULL;
+		if (current)
+			insert_after_node(current, new_node);
+		else
+			*h = new_node;
+		return new_node;
 	}
-	insert_in_the_middle(&h, idx, &temp);
-	free(temp);
-	return (NULL);
+
+	return NULL;
 }
