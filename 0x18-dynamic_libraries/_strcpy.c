@@ -1,4 +1,4 @@
 char *_strcpy(char *dest, char *src)
 {
-	return ('a');
+	return (0);
 }
