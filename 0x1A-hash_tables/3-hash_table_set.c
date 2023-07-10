@@ -37,21 +37,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	}
 
 	temp->key = strdup(key);
-	if (temp->key == NULL)
-	{
-		free(temp);
-		return (0);
-	}
 	temp->value = strdup(value);
-	if (temp->value == NULL)
-	{
-		free(temp->key);
-		free(temp);
-		return (0);
-	}
 	temp->next = NULL;
 
-	index = key_index((const unsigned char *)key, ht->size);
 	temp->next = ht->array[index];
 	ht->array[index] = temp;
 	return (1);
