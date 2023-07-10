@@ -6,7 +6,7 @@
  * @key: the key of the element
  * @value: value
  * Return: integer
-*/
+ */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
     hash_node_t *temp = NULL, *current = NULL;
@@ -35,10 +35,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
     }
 
     current = ht->array[index];
-    while (current->next != NULL)
-    {
-        current = current->next;
-    }
-    current->next = temp;
+    temp->next = current;
+    current = temp;
     return (1);
 }
