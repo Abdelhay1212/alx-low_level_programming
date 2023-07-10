@@ -4,15 +4,15 @@
  * hash_table_set - adds an element to the hash table.
  * @ht: the hash table to insert element in
  * @key: the key of the element
- * @value: value
- * Return: integer
+ * @value: The value associated with key.
+ * Return: 1 if it succeeded, 0 otherwise
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	hash_node_t *temp = NULL;
 	unsigned long int index;
 
-	if (ht == NULL || key == NULL || strlen(key) == 0)
+	if (ht == NULL || key == NULL || strlen(key) == 0 || value == NULL)
 	{
 		return (0);
 	}
