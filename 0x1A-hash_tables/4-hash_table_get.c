@@ -2,16 +2,15 @@
 
 /**
  * hash_table_get - function that retrieves a value associated with a key.
- * @th: is the hash table you want to look into
+ * @ht: is the hash table you want to look into
  * @key: is the key you are looking for
- * Return : Returns the value associated with the element,
-    or NULL if key couldn’t be found
+ * Return: Returns the value associated with the element
 */
 char *hash_table_get(const hash_table_t *ht, const char *key)
 {
 	unsigned long int index;
 
-	if (ht == NULL || key == NULL || strlen(key) == 0)
+	if (ht == NULL || key == NULL || *key == '\0')
 		return (NULL);
 
 	index = key_index((const unsigned char *)key, ht->size);
